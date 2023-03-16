@@ -1,57 +1,24 @@
 const express = require('express');
-
+const mongoose = require('mongoose');
+const pageRoute = require('./routes/pageRoute');
+const Photo = require('./models/PhotoModels');
 
 const app = express();
 
+mongoose.connect('mongodb://127.0.0.1:27017/misfit');
+
 app.use(express.static('public'));
 app.set('view engine','ejs');
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
+app.use("/" ,pageRoute);
 
-app.get('/contact', (req,res) => {
-    res.render('contact',{
-        page_name:'contact'
-    });
+app.post('/uploadPhotos',async (req,res) => {
+    await Photo.create(req.body);
+    console.log()
+    res.redirect('/');
 });
-
-
-app.get('/about',(req,res) => {
-    res.render('about',{
-        page_name:'about'
-    })
-})
-
-app.get('/gallery',(req,res) => {
-    res.render('gallery',{
-        page_name:'gallery'
-    })
-})
-
-app.get('/news',(req,res) => {
-    res.render('news',{
-        page_name:'news'
-    })
-})
-
-app.get('/service',(req,res) => {
-    res.render('service',{
-        page_name:'service'
-    })
-})
-
-app.get('/trainer',(req,res) => {
-    res.render('trainer',{
-        page_name:'trainer'
-    })
-})
-
-app.get('/',(req,res) => {
-    res.render('index',
-    
-    {
-        page_name:'index'
-    });
-})
-
 
 app.listen(3000,() => {
     console.log('Sunucu 3000 portunda başlatıldı');
