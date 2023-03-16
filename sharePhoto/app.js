@@ -1,7 +1,9 @@
-import express from 'express';
-import dotenv from 'dotenv';
+const express = require('express');
+const dotenv = require('dotenv');
+const conn = require("./db");
+const pageRoutes = require("./routes/pageRoutes");
 
-import conn from './db.js';
+
 
 dotenv.config();
 
@@ -19,39 +21,12 @@ app.set('view engine', 'ejs');
 //public 
 app.use(express.static('public'));
 
+app.use("/", pageRoutes);
+
 
 const port = process.env.PORT || 3000;
 
 
-
-app.get('/',(req,res)=> {
-    res.render('index');
-
-})
-
-app.get('/about',(req,res) => {
-    res.render('about');
-})
-
-app.get('/blog',(req,res) => {
-    res.render('blog');
-})
-
-app.get('/contact',(req,res) => {
-    res.render('contact');
-})
-
-app.get('/gallery',(req,res) => {
-    res.render('gallery');
-})
-
-app.get('/projects',(req,res) => {
-    res.render('projects');
-})
-
-app.get('/services',(req,res) => {
-    res.render('services');
-})
 
 
 
