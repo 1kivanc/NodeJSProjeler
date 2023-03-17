@@ -10,5 +10,6 @@ router.route('/blog').get(pageController.getBlogPage);
 router.route('/contact').get(pageController.getContactPage);
 router.route('/projects').get(pageController.getProjectsPage);
 router.route('/services').get(pageController.getServicesPage);
+router.route('/register').get(pageController.getRegisterPage);
 
 module.exports = router;

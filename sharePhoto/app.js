@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const conn = require("./db");
 const pageRoutes = require("./routes/pageRoutes");
 const photoRoutes = require("./routes/photoRoutes");
- 
+const userRoutes = require("./routes/userRoutes"); 
 
 dotenv.config();
 
@@ -21,9 +21,11 @@ app.set('view engine', 'ejs');
 //public 
 app.use(express.static('public'));
 app.use(express.json());
+app.use(express.urlencoded({extended:true}))
 
 app.use("/", pageRoutes);
 app.use("/photos" , photoRoutes);
+app.use("/users" ,userRoutes);
 
 
 const port = process.env.PORT || 3000;
