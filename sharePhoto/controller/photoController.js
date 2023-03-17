@@ -33,4 +33,23 @@ const getAllPhotos = async(req,res) => {
     }
 }
 
-module.exports = {createPhoto,getAllPhotos};
+const getAPhoto = async(req,res) => {
+    try{
+        const photo = await  Photo.findById({_id: req.params.id})
+        res.status(200).render('photo',{
+            photo,
+            page_name:'photo'
+        })
+
+    }catch(err){
+        res.status(500).json({
+            succeded:false,
+            err
+        })
+
+    }
+    
+    
+}
+
+module.exports = {createPhoto,getAllPhotos,getAPhoto};
