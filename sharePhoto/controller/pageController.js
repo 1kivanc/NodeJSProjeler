@@ -1,28 +1,37 @@
 const getIndexPage = (req,res) => {
-    res.render('index');
+    res.render('index',{
+        page_name:'index'
+    });
 }
 
 const getAboutPage = (req,res) => {
-    res.render('about');
+    res.render('about',{
+        page_name:'about'
+    });
 }
 
 const getBlogPage = (req,res) => {
-    res.render('blog');
+    res.render('blog',{
+        page_name:'blog'
+    });
 }
 const getContactPage = (req,res) => {
-    res.render('contact');
+    res.render('contact',{
+        page_name:'contact'
+    });
 }
 
-const getGalleryPage = (req,res) => {
-    res.render('gallery');
-}
 
 const getProjectsPage = (req,res) => {
-    res.render('projects');
+    res.render('projects',{
+        page_name:'projects'
+    });
 }
 
 const getServicesPage = (req,res) => {
-    res.render('services');
+    res.render('services',{
+        page_name:'services'
+    });
 }
 
-module.exports = {getIndexPage,getAboutPage,getBlogPage,getContactPage,getGalleryPage,getProjectsPage,getServicesPage};
+module.exports = {getIndexPage,getAboutPage,getBlogPage,getContactPage,getProjectsPage,getServicesPage};

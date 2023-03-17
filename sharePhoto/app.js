@@ -23,7 +23,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.use("/", pageRoutes);
-app.use("/photo" , photoRoutes);
+app.use("/photos" , photoRoutes);
 
 
 const port = process.env.PORT || 3000;

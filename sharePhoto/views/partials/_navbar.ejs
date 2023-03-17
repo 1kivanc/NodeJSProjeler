@@ -11,13 +11,13 @@
              <div class="navbar-area">
                 <nav class="site-navbar">
                    <ul>
-                      <li><a class="active" href="index.html">Home</a></li>
-                      <li><a href="about.html">About</a></li>
-                      <li><a href="services.html">Services</a></li>
-                      <li><a href="gallery.html">Gallery</a></li>
-                      <li><a href="projects.html">Projects</a></li>
-                      <li><a href="blog.html">Blog</a></li>
-                      <li><a href="contact.html">Contact</a></li>
+                      <li><a class="<%= page_name === 'index' && 'active' %>" href="/">Home</a></li>
+                      <li><a class="<%= page_name === 'about' && 'active' %>" href="/about">About</a></li>
+                      <li><a class="<%= page_name === 'services' && 'active' %> " href="/services">Services</a></li>
+                      <li><a class="<%= page_name === 'photos' && 'active' %>" href="/photos">Photos</a></li>
+                      <li><a class="<%= page_name === 'projects' && 'active' %>"href="/projects">Projects</a></li>
+                      <li><a class="<%= page_name === 'blog' && 'active' %>"href="/blog">Blog</a></li>
+                      <li><a class="<%= page_name === 'contact' && 'active' %>"href="/contact">Contact</a></li>
                    </ul>
                    <button class="nav-toggler">
                    <span></span>
