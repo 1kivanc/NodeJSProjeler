@@ -20,6 +20,7 @@ app.set('view engine', 'ejs');
 
 //public 
 app.use(express.static('public'));
+app.use(express.json());
 
 app.use("/", pageRoutes);
 app.use("/photo" , photoRoutes);
