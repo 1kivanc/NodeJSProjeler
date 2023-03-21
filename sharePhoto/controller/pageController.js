@@ -40,4 +40,10 @@ const getRegisterPage = (req,res) => {
     })
 }
 
-module.exports = {getIndexPage,getAboutPage,getBlogPage,getContactPage,getProjectsPage,getServicesPage,getRegisterPage};
+const getLoginPage = (req,res) => {
+    res.render('login',{
+        page_name:'login'
+    })
+}
+
+module.exports = {getIndexPage,getAboutPage,getBlogPage,getContactPage,getProjectsPage,getServicesPage,getRegisterPage,getLoginPage};
