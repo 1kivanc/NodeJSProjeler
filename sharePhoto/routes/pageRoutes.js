@@ -1,10 +1,11 @@
 const express = require('express');
 const pageController = require('../controller/pageController');
+const authMiddleware = require('../middlewares/authMiddleware');
 
 const router = express.Router();
 
 
-router.route('/').get(pageController.getIndexPage);
+router.route('/').get(authMiddleware.authenticateToken ,pageController.getIndexPage);
 router.route('/about').get(pageController.getAboutPage);
 router.route('/blog').get(pageController.getBlogPage);
 router.route('/contact').get(pageController.getContactPage);

@@ -1,5 +1,7 @@
 const User = require('../models/userSchema');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 
 const createUser = async (req,res) => {
  try{
@@ -56,7 +58,10 @@ const loginUser  = async (req,res) => {
 
         }
         if(same){
-            res.send('giriş başarılı');
+            res.status(200).json({
+                user,
+                token:createToken(user._id)
+            })
         }else {
             res.status(401).json({
                 succeded:false,
@@ -73,4 +78,11 @@ const loginUser  = async (req,res) => {
         })
     }
 }
+
+const createToken = (userId) => {
+    return  jwt.sign({userId},process.env.JWT_SECRET,{
+        expiresIn: '1d',
+    });
+};
+
 module.exports = {createUser,getAllUser,loginUser};
